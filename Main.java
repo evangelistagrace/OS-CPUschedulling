@@ -7,10 +7,13 @@ public class Main
     {
         Scanner input = new Scanner(System.in);
         int numOfProcesses;
-        int[] arrivalTime = new int[10];
-        int[] burstTime = new int[10];
-        int[] priority = new int[10];
-        int[] timeQuantum = new int[10];
+        String name;
+        int arrivalTime;
+        int burstTime;
+        int priority;
+        int timeQuantum = 0;
+        
+        LinkedList<Process> process = new LinkedList<>();
         
         System.out.println("------CPU Scheduling Algorithms Simulation-----");
         System.out.println();
@@ -19,24 +22,34 @@ public class Main
         System.out.println();
         for(int i=0; i<numOfProcesses; i++)
         {
+            name = "P" + i;
             System.out.println("Process P" + i);
             System.out.println();
             System.out.print("Enter arrival time: ");
-            arrivalTime[i] = input.nextInt();
+            arrivalTime = input.nextInt();
             System.out.println();
             System.out.print("Enter burst time: ");
-            burstTime[i] = input.nextInt();
+            burstTime = input.nextInt();
             System.out.println();
             System.out.print("Enter priority: ");
-            priority[i] = input.nextInt();
+            priority = input.nextInt();
             
-            if((priority[i]==1)||(priority[i]==2))
+            if((priority==1)||(priority==2))
             {
                 System.out.println();
                 System.out.print("Enter time quantum: ");
-                timeQuantum[i] = input.nextInt();
+                timeQuantum = input.nextInt();
             }
-
+            
+            if(timeQuantum != 0)
+            {
+                process.add(new Process(name, arrivalTime, burstTime, priority, timeQuantum));
+            }
+            else
+            {
+                process.add(new Process(name, arrivalTime, burstTime, priority));
+            }
+            
             System.out.println();
             System.out.println();
         }
@@ -44,10 +57,10 @@ public class Main
         System.out.println();
         System.out.println();
         
-        printTable(numOfProcesses, burstTime, arrivalTime, priority);
+        printTable(numOfProcesses, process);
     }
     
-    public static void printTable(int numOfProcesses, int[] burstTime, int[] arrivalTime, int[] priority)
+    public static void printTable(int numOfProcesses, LinkedList<Process> process)
     {
         
         System.out.println("+----------------+----------------+----------------+----------------+");
@@ -56,7 +69,7 @@ public class Main
         for(int i=0;i<numOfProcesses;i++)
         {
         //System.out.println("+----------------+----------------+----------------+----------------+");
-          System.out.println("|P" + i + "              |"  + burstTime[i] + "               |" + arrivalTime[i] + "               |" + priority[i] + "               |");
+          System.out.println("|" + process.get(i).getName() + "              |"  + process.get(i).getBurstTime() + "               |" + process.get(i).getArrivalTime() + "               |" + process.get(i).getPriority() + "               |");
           System.out.println("+----------------+----------------+----------------+----------------+");
           
             
