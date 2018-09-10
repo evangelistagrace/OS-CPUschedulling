@@ -2,14 +2,14 @@ import java.util.*;
 
 public class Main
 {
-    
+    static int[] priority = new int[10];
     public static void main(String[] args)
     {
         Scanner input = new Scanner(System.in);
         int numOfProcesses;
         int[] arrivalTime = new int[10];
         int[] burstTime = new int[10];
-        int[] priority = new int[10];
+        
         int[] timeQuantum = new int[10];
         
         System.out.println("------CPU Scheduling Algorithms Simulation-----");
@@ -19,24 +19,26 @@ public class Main
         for(int i=0; i<numOfProcesses; i++)
         {
             System.out.println("Process [" + i + "]");
-            System.out.println("Enter arrival time: ");
+            System.out.println();
+            System.out.print("Enter arrival time: ");
             arrivalTime[i] = input.nextInt();
-            System.out.println("Enter burst time: ");
+            System.out.println();
+            System.out.print("Enter burst time: ");
             burstTime[i] = input.nextInt();
-            System.out.println("Enter priority: ");
+            System.out.println();
+            System.out.print("Enter priority: ");
             priority[i] = input.nextInt();
+            System.out.println();
             
-            for(int j=0;j<priority.length;j++)
+            if((priority[i]==1)||(priority[i]==2))
             {
-                if((priority[j]==1)||(priority[j]==2))
-                {
-                    System.out.println("Enter time quantum: ");
-                    timeQuantum[j] = input.nextInt();
-                }
+                System.out.println("Enter time quantum: ");
+                timeQuantum[i] = input.nextInt();
             }
-            
+
         }
-        
+        System.out.println();
+        System.out.println();
         
         
     }
