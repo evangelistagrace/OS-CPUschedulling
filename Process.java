@@ -2,7 +2,6 @@ import java.util.*;
 
 public class Process
 {
-    Scanner input = new Scanner(System.in);
     String name;
     int numOfProcesses;
     int arrivalTime;

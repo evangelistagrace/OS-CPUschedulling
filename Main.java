@@ -17,7 +17,7 @@ public class Main
         
         System.out.println("------CPU Scheduling Algorithms Simulation-----");
         System.out.println();
-        System.out.println("Enter number of processes: ");
+        System.out.println("Enter number of processes[3-10]: ");
         numOfProcesses = input.nextInt();
         System.out.println();
         for(int i=0; i<numOfProcesses; i++)
@@ -31,7 +31,7 @@ public class Main
             System.out.print("Enter burst time: ");
             burstTime = input.nextInt();
             System.out.println();
-            System.out.print("Enter priority: ");
+            System.out.print("Enter priority[1-6]: ");
             priority = input.nextInt();
             
             if((priority==1)||(priority==2))
@@ -60,6 +60,7 @@ public class Main
         printTable(numOfProcesses, process);
     }
     
+    //print table for all processes
     public static void printTable(int numOfProcesses, LinkedList<Process> process)
     {
         
