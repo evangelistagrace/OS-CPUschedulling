@@ -13,7 +13,8 @@ public class Main
         int priority;
         int timeQuantum = 0;
         
-        LinkedList<Process> process = new LinkedList<>();
+        ArrayList<Process> process = new ArrayList<>();
+        FCFSprio FCFS = new FCFSprio();
         
         System.out.println("------CPU Scheduling Algorithms Simulation-----");
         System.out.println();
@@ -58,10 +59,13 @@ public class Main
         System.out.println();
         
         printTable(numOfProcesses, process);
+        
+        
+        FCFS.runFCFS(process);
     }
     
     //print table for all processes
-    public static void printTable(int numOfProcesses, LinkedList<Process> process)
+    public static void printTable(int numOfProcesses, ArrayList<Process> process)
     {
         
         System.out.println("+----------------+----------------+----------------+----------------+");

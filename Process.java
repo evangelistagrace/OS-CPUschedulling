@@ -1,12 +1,12 @@
 import java.util.*;
 
-public class Process
+public class Process implements Comparable<Process>
 {
     String name;
     int numOfProcesses;
-    int arrivalTime;
+    int arrivalTime=0;
     int burstTime;
-    int priority;
+    int priority=1;
     int timeQuantum;
     
     public Process(String name, int arrivalTime,int burstTime,int priority, int timeQuantum) //for priority 1 and 2, with time quantum
@@ -77,4 +77,18 @@ public class Process
     {
         return timeQuantum;
     }
+    
+    //sort ccording to priority
+    public int compareTo(Process p)
+    {
+        if((priority - p.getPriority()) == 0)
+        {
+            return arrivalTime - p.getArrivalTime();
+            
+        }
+        return priority - p.getPriority();
+    }
+   
+   
+   
 }
