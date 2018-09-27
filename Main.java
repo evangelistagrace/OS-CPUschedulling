@@ -15,12 +15,14 @@ public class Main
         
         ArrayList<Process> process = new ArrayList<>();
         FCFSprio FCFS = new FCFSprio();
+        RRprio RR = new RRprio();
         
         System.out.println("------CPU Scheduling Algorithms Simulation-----");
         System.out.println();
         System.out.println("Enter number of processes[3-10]: ");
         numOfProcesses = input.nextInt();
-        System.out.println();
+        System.out.println("\nEnter quantum: ");
+        timeQuantum = input.nextInt();
         // for(int i=0; i<numOfProcesses; i++)
         // {
         //     name = "P" + i;
@@ -56,17 +58,23 @@ public class Main
         //     System.out.println();
         // }
 
-		process.add(new Process("P1", 0, 6, 3));
-		process.add(new Process("P2", 1, 4, 1));
-		process.add(new Process("P3", 5, 6, 1));
+		process.add(new Process("P0", 0, 6, 3));
+		process.add(new Process("P1", 1, 4, 3));
+		process.add(new Process("P2", 5, 6, 1));
+        process.add(new Process("P3", 6, 6, 1));
+        process.add(new Process("P4", 7, 6, 5));
+		process.add(new Process("P5", 8, 6, 6));
         
         System.out.println();
         System.out.println();
         
         printTable(numOfProcesses, process);
         
+        // FCFS.runFCFS(process);
+        RR.runRR(process, timeQuantum);
         
-        FCFS.runFCFS(process);
+
+        input.close();
     }
     
     //print table for all processes
