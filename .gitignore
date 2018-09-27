@@ -10,3 +10,6 @@ FCFSprio.class
 *.bluej
 FCFSprio.java#backup
 *.bluej
+
+# editor files
+.vscode/
