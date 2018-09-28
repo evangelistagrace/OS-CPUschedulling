@@ -3,15 +3,15 @@ import java.util.Scanner;
 
 public class FCFSprio 
 {
-    Stack<Process> arrivalTimeStack = new Stack<>();
-    PriorityQueue<Process> priorityQueue = new PriorityQueue<>();
+    Stack<Proc> arrivalTimeStack = new Stack<>();
+    PriorityQueue<Proc> priorityQueue = new PriorityQueue<>();
 	ArrayList<Box> output = new ArrayList<>();
     int totalBurstTime=0;
     int time=0;
     
     public FCFSprio(){}
     
-    public void runFCFS(ArrayList<Process> p)
+    public void runFCFS(ArrayList<Proc> p)
     {
 		// Scanner in = new Scanner(System.in);
 		// String s = "";
@@ -25,8 +25,8 @@ public class FCFSprio
         
 		int startTime = 0;
 		int endTime = 0;
-		Process currentProcess = arrivalTimeStack.pop();
-		Process nextProcess = new Process();
+		Proc currentProcess = arrivalTimeStack.pop();
+		Proc nextProcess = new Proc();
        
         for(int time=0;time<=totalBurstTime;time++)
         {
