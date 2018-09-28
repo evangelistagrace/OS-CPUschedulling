@@ -8,7 +8,7 @@ public class FCFSprio
 	ArrayList<Box> output = new ArrayList<>();
     int totalBurstTime=0;
 	int time=0;
-	String title = "FCFS-based preemptive priority: ";
+	String title = "FCFS-based Pre-emptive Priority: ";
     
     public FCFSprio(){}
     
