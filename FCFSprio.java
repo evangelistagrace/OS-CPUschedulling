@@ -66,10 +66,9 @@ public class FCFSprio
 		}
 
 
-		System.out.println();
-
-		System.out.println("FCFS-based premptive priority");
-
+		System.out.println()
+		//display FCFS table
+		System.out.println("FCFS-based preemptive priority:");
 		for(int i=1;i<output.size();i++)
 		{
 			System.out.print("-------");
