@@ -71,9 +71,10 @@ public class Main
         
         printTable(numOfProcesses, process);
         
-        // FCFS.runFCFS(process);
+		 FCFS.runFCFS(process);
+		 FCFS.displayTimeline();
 	   // RR.runRR(process, timeQuantum);
-	   SRTN.runSRTN(process);
+	   //SRTN.runSRTN(process);
         
 
         input.close();

@@ -1,13 +1,14 @@
 import java.util.*;
 import java.util.Scanner;
 
-public class FCFSprio 
+public class FCFSprio
 {
     Stack<Process> arrivalTimeStack = new Stack<>();
     PriorityQueue<Process> priorityQueue = new PriorityQueue<>();
 	ArrayList<Box> output = new ArrayList<>();
     int totalBurstTime=0;
-    int time=0;
+	int time=0;
+	String title = "FCFS-based preemptive priority: ";
     
     public FCFSprio(){}
     
@@ -65,54 +66,61 @@ public class FCFSprio
 			}
 		}
 
-
-		//display FCFS table
+	}//end of runFCFS
+	
+	public void displayTimeline()
+	{
 		System.out.println();
-		System.out.println("FCFS-based preemptive priority:");
-		for(int i=1;i<output.size();i++)
+		System.out.println(title);
+		for(int i=0;i<output.size();i++)
 		{
-			System.out.print("--------");
+			String line = String.format("%8s", "-").replace(' ', '-');
+			System.out.print(line);
 		
 		}
 		System.out.println();
 		for(int i=0;i<output.size();i++)
 		{
-			if(i==0)
+			String tab = String.format("%1$2s", " ");
+			String pname = String.format("%1$2s %2$-2s",  output.get(i).p.getName(), " ");
+	
+			if(i==(output.size()-1))
 			{
-				System.out.print("|   " + output.get(i).p.getName());
-
+				System.out.print("|" );
+				System.out.print(tab);
+				System.out.print(pname);
+				System.out.print("|" );
 			}
-			else if(i==output.size()-1)
-			{
-				System.out.print("   | "+output.get(i).p.getName()+ "   |");
-
+			else{
+				System.out.print("|" );
+				System.out.print(tab);
+				System.out.print(pname);
 			}
-			else
-			{
-				System.out.print("   |   " + output.get(i).p.getName());
-
-			}
+		
 		}
 
 		System.out.println();
-		for(int i=1;i<output.size();i++)
+		for(int i=0;i<output.size();i++)
 		{
-			System.out.print("--------");
+			String line = String.format("%8s", "-").replace(' ', '-');
+			System.out.print(line);
 		
 		}
 		
 		System.out.println();
 		for(int i=0;i<output.size();i++)
 		{ 
+			String timeline1 = String.format("%1$-4s %2$4s",  output.get(i).startTime, output.get(i).endTime);
+			String timeline2 = String.format("%1$8s", output.get(i).endTime);
+	
 			if(i==0)
 			{
-				System.out.print(output.get(0).startTime + "    " + output.get(0).endTime);
+				System.out.print(timeline1);
 			}
 			else{
-				System.out.print("    " + output.get(i).endTime);
+				System.out.print(timeline2);
 			}
 				
 		}
-	
-    }
+	}//end of displayTimeline
 }
