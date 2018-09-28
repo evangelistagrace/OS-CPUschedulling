@@ -70,8 +70,8 @@ public class Main
         
         printTable(numOfProcesses, process);
         
-        // FCFS.runFCFS(process);
-        RR.runRR(process, timeQuantum);
+         FCFS.runFCFS(process);
+       // RR.runRR(process, timeQuantum);
         
 
         input.close();

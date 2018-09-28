@@ -65,9 +65,62 @@ public class FCFSprio
 			}
 		}
 
-		for(Box t: output)
+
+		// for(int i=0;i<output.size();i++)
+		// {
+		// 	if(i==0)
+		// 	{
+		// 		System.out.println("thread: " + output.get(0).p.getName() + ", start time: " + output.get(0).startTime + ", end time: " + output.get(0).endTime);
+		// 	}
+		// 	else{
+		// 		System.out.println("thread: " + output.get(i).p.getName() +  ", end time: " + output.get(i).endTime);
+
+		// 	}
+		// }
+
+		for(int i=1;i<output.size();i++)
 		{
-			System.out.println("thread: " + t.p.getName() + ", start time: " + t.startTime + ", end time: " + t.endTime);
+			System.out.print("-------");
+		
+		}
+		System.out.println();
+		for(int i=0;i<output.size();i++)
+		{
+			if(i==0)
+			{
+				System.out.print("| " + output.get(i).p.getName());
+
+			}
+			else if(i==output.size()-1)
+			{
+				System.out.print("  | "+output.get(i).p.getName()+ " |");
+
+			}
+			else
+			{
+				System.out.print("  | " + output.get(i).p.getName());
+
+			}
+		}
+
+		System.out.println();
+		for(int i=1;i<output.size();i++)
+		{
+			System.out.print("-------");
+		
+		}
+		
+		System.out.println();
+		for(int i=0;i<output.size();i++)
+		{ 
+			if(i==0)
+			{
+				System.out.print(output.get(0).startTime + "    " + output.get(0).endTime);
+			}
+			else{
+				System.out.print("    " + output.get(i).endTime);
+			}
+				
 		}
 	
     }
