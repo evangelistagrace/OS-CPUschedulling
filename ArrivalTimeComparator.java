@@ -1,9 +1,9 @@
 import java.util.*;
 
-public class ArrivalTimeComparator implements Comparator<Process>
+public class ArrivalTimeComparator implements Comparator<Proc>
 {
     @Override
-    public int compare(Process p1, Process p2)
+    public int compare(Proc p1, Proc p2)
     {
         
         return p2.getArrivalTime() - p1.getArrivalTime();
