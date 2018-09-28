@@ -54,6 +54,11 @@ public class Process implements Comparable<Process>
     {
         this.timeQuantum = timeQuantum;
     }
+
+    public void incrementElapsedTime()
+    {
+        this.elapsedTime++;
+    }
     
     //getter functions
     public String getName()
