@@ -66,21 +66,12 @@ public class FCFSprio
 		}
 
 
-		// for(int i=0;i<output.size();i++)
-		// {
-		// 	if(i==0)
-		// 	{
-		// 		System.out.println("thread: " + output.get(0).p.getName() + ", start time: " + output.get(0).startTime + ", end time: " + output.get(0).endTime);
-		// 	}
-		// 	else{
-		// 		System.out.println("thread: " + output.get(i).p.getName() +  ", end time: " + output.get(i).endTime);
-
-		// 	}
-		// }
-
+		System.out.println();
+		//display FCFS table
+		System.out.println("FCFS-based preemptive priority:");
 		for(int i=1;i<output.size();i++)
 		{
-			System.out.print("--------");
+			System.out.print("-------");
 		
 		}
 		System.out.println();
@@ -88,17 +79,17 @@ public class FCFSprio
 		{
 			if(i==0)
 			{
-				System.out.print("|   " + output.get(i).p.getName());
+				System.out.print("| " + output.get(i).p.getName());
 
 			}
 			else if(i==output.size()-1)
 			{
-				System.out.print("   | "+output.get(i).p.getName()+ "   |");
+				System.out.print("  | "+output.get(i).p.getName()+ " |");
 
 			}
 			else
 			{
-				System.out.print("   |   " + output.get(i).p.getName());
+				System.out.print("  | " + output.get(i).p.getName());
 
 			}
 		}
@@ -106,7 +97,7 @@ public class FCFSprio
 		System.out.println();
 		for(int i=1;i<output.size();i++)
 		{
-			System.out.print("--------");
+			System.out.print("-------");
 		
 		}
 		
