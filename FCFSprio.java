@@ -66,6 +66,7 @@ public class FCFSprio
 			}
 		}
 
+
 	}//end of runFCFS
 	
 	public void displayTimeline()
@@ -76,11 +77,13 @@ public class FCFSprio
 		{
 			String line = String.format("%8s", "-").replace(' ', '-');
 			System.out.print(line);
+
 		
 		}
 		System.out.println();
 		for(int i=0;i<output.size();i++)
 		{
+
 			String tab = String.format("%1$2s", " ");
 			String pname = String.format("%1$2s %2$-2s",  output.get(i).p.getName(), " ");
 	
@@ -95,6 +98,7 @@ public class FCFSprio
 				System.out.print("|" );
 				System.out.print(tab);
 				System.out.print(pname);
+
 			}
 		
 		}
@@ -104,6 +108,7 @@ public class FCFSprio
 		{
 			String line = String.format("%8s", "-").replace(' ', '-');
 			System.out.print(line);
+
 		
 		}
 		
