@@ -15,7 +15,8 @@ public class Main
         
         ArrayList<Process> process = new ArrayList<>();
         FCFSprio FCFS = new FCFSprio();
-        RRprio RR = new RRprio();
+		RRprio RR = new RRprio();
+		SRTNprio SRTN = new SRTNprio();
         
         System.out.println("------CPU Scheduling Algorithms Simulation-----");
         System.out.println();
@@ -70,8 +71,9 @@ public class Main
         
         printTable(numOfProcesses, process);
         
-         FCFS.runFCFS(process);
-       // RR.runRR(process, timeQuantum);
+        // FCFS.runFCFS(process);
+	   // RR.runRR(process, timeQuantum);
+	   SRTN.runSRTN(process);
         
 
         input.close();
