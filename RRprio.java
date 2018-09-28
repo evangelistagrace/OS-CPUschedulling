@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class RRprio 
 {
-    Stack<Proc> arrivalTimeStack = new Stack<>();
-    PriorityQueue<Proc> priorityQueue = new PriorityQueue<>();
+    Stack<Process> arrivalTimeStack = new Stack<>();
+    PriorityQueue<Process> priorityQueue = new PriorityQueue<>();
 	ArrayList<Box> output = new ArrayList<>();
     int totalBurstTime=0;
     int time=0;
@@ -12,7 +12,7 @@ public class RRprio
     
     public RRprio(){}
     
-    public void runRR(ArrayList<Proc> p, int q)
+    public void runRR(ArrayList<Process> p, int q)
     {
 		this.quantum = q;
         for(int i=0;i<p.size();i++)
@@ -25,9 +25,9 @@ public class RRprio
         
 		int startTime = 0;
 		int endTime = 0;
-		Proc currentProcess = arrivalTimeStack.pop();
-		Proc nextProcess = new Proc();
-		Proc tmp = new Proc();
+		Process currentProcess = arrivalTimeStack.pop();
+		Process nextProcess = new Process();
+		Process tmp = new Process();
        
         for(int time=0;time<=totalBurstTime;time++)
         {
@@ -41,8 +41,7 @@ public class RRprio
 			}
 			if(nextProcess != null && nextProcess.getArrivalTime() == time)
 			{
-                priorityQueue.add(arrivalTimeStack.pop());
-
+            	priorityQueue.add(arrivalTimeStack.pop());
 			}
 			if(currentProcess != null && time != 0 && currentProcess.getElapsedTime() >= currentProcess.getBurstTime()) {
 				if(!priorityQueue.isEmpty()){
@@ -66,6 +65,8 @@ public class RRprio
 				currentProcess.incrementElapsedTime();
 			}
 		}
+		endTime = totalBurstTime;
+		output.add(new Box(currentProcess, startTime, endTime));
 
 		for(Box t: output)
 		{

@@ -13,8 +13,8 @@ public class Main
         int priority;
         int timeQuantum = 0;
         
-        ArrayList<Proc> process = new ArrayList<>();
-        // FCFSprio FCFS = new FCFSprio();
+        ArrayList<Process> process = new ArrayList<>();
+        FCFSprio FCFS = new FCFSprio();
         RRprio RR = new RRprio();
         
         System.out.println("------CPU Scheduling Algorithms Simulation-----");
@@ -58,27 +58,27 @@ public class Main
         //     System.out.println();
         // }
 
-		process.add(new Proc("P0", 0, 6, 3));
-		process.add(new Proc("P1", 1, 4, 3));
-		process.add(new Proc("P2", 5, 6, 1));
-        process.add(new Proc("P3", 6, 6, 1));
-        process.add(new Proc("P4", 7, 6, 5));
-		process.add(new Proc("P5", 8, 6, 6));
+		process.add(new Process("P0", 0, 6, 3));
+		process.add(new Process("P1", 1, 4, 3));
+		process.add(new Process("P2", 5, 6, 1));
+        process.add(new Process("P3", 6, 6, 1));
+        process.add(new Process("P4", 7, 6, 5));
+		process.add(new Process("P5", 8, 6, 6));
         
         System.out.println();
         System.out.println();
         
         printTable(numOfProcesses, process);
         
-         FCFS.runFCFS(process);
-       // RR.runRR(process, timeQuantum);
+        // FCFS.runFCFS(process);
+        RR.runRR(process, timeQuantum);
         
 
         input.close();
     }
     
     //print table for all processes
-    public static void printTable(int numOfProcesses, ArrayList<Proc> process)
+    public static void printTable(int numOfProcesses, ArrayList<Process> process)
     {
         
         System.out.println("+----------------+----------------+----------------+----------------+");
