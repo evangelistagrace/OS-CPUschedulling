@@ -1,14 +1,15 @@
 import java.util.*;
 import java.util.Scanner;
 
-public class FCFSprio 
+public class FCFSprio extends SchedulingAlgo
 {
     Stack<Process> arrivalTimeStack = new Stack<>();
     PriorityQueue<Process> priorityQueue = new PriorityQueue<>();
 	ArrayList<Box> output = new ArrayList<>();
     int totalBurstTime=0;
     int time=0;
-    
+	String title = "FCFS-based Priority Scheduling: ";
+	
     public FCFSprio(){}
     
     public void runFCFS(ArrayList<Process> p)
