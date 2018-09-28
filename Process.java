@@ -42,7 +42,7 @@ public class Process implements Comparable<Process>
     
     public void setBurstTime(int burstTime)
     {
-        this.burstTime = burstTime;
+        this.burstTime = this.burstTime - burstTime;
     }
     
     public void setPriority(int priority)
