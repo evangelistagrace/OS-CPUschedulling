@@ -27,6 +27,7 @@ public class RRprio
 		int endTime = 0;
 		Process currentProcess = arrivalTimeStack.pop();
 		Process nextProcess = new Process();
+		Process tmp = new Process();
        
         for(int time=0;time<=totalBurstTime;time++)
         {
@@ -40,25 +41,32 @@ public class RRprio
 			}
 			if(nextProcess != null && nextProcess.getArrivalTime() == time)
 			{
-                priorityQueue.add(arrivalTimeStack.pop());
-
+            	priorityQueue.add(arrivalTimeStack.pop());
 			}
-			if(currentProcess != null && (currentProcess.getElapsedTime() >= currentProcess.getBurstTime() || time % quantum == 0)) {
+			if(currentProcess != null && time != 0 && currentProcess.getElapsedTime() >= currentProcess.getBurstTime()) {
+				if(!priorityQueue.isEmpty()){
+					endTime = time;
+					output.add(new Box(currentProcess, startTime, endTime));
+					currentProcess = priorityQueue.poll();
+					startTime = time;
+				}
+			}
+			else if (currentProcess != null && time != 0 && time % quantum == 0){
 				endTime = time;
-                output.add(new Box(currentProcess, startTime, endTime));
-                Process tmp = currentProcess;
-                if(!priorityQueue.isEmpty()){
-                    currentProcess = priorityQueue.poll();
-                }
-                if(currentProcess.getElapsedTime() < currentProcess.getBurstTime()){
-                    priorityQueue.add(tmp);
-                }
+				output.add(new Box(currentProcess, startTime, endTime));
+				if(!priorityQueue.isEmpty()){
+					tmp = currentProcess;
+					currentProcess = priorityQueue.poll();
+					priorityQueue.add(tmp);
+				}
 				startTime = time;
 			}
 			if(currentProcess != null){
 				currentProcess.incrementElapsedTime();
 			}
 		}
+		endTime = totalBurstTime;
+		output.add(new Box(currentProcess, startTime, endTime));
 
 		for(Box t: output)
 		{
@@ -67,3 +75,19 @@ public class RRprio
 	
     }
 }
+
+
+
+// if(currentProcess != null && time != 0 && (currentProcess.getElapsedTime() >= currentProcess.getBurstTime() || time % quantum == 0)) {
+// 	endTime = time;
+// 	output.add(new Box(currentProcess, startTime, endTime));
+// 	Proc tmp = currentProcess;
+// 	if(!priorityQueue.isEmpty()){
+// 		currentProcess = priorityQueue.poll();
+// 	}
+// 	if(currentProcess.getElapsedTime() < currentProcess.getBurstTime()){
+// 		priorityQueue.add(tmp);
+// 	}
+	
+// 	startTime = time;
+// }
