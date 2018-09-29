@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SRTNprio extends SchedulingAlgo
+public class SRTNprio
 {
 	Stack<Process> arrivalTimeStack = new Stack<>();
 	Stack<Process> burstTimeStack = new Stack<>();
@@ -11,8 +11,9 @@ public class SRTNprio extends SchedulingAlgo
 	String title = "SRTN-based Priority Scheduling: ";
 	public SRTNprio(){}
 
-	public void runSRTN(ArrayList<Process> p)
+	public void runSRTN(ArrayList<Process> process)
 	{
+		ArrayList<Process> p = new ArrayList<>(process);
 		for(int i=0;i<p.size();i++)
         {
             arrivalTimeStack.add(p.get(i));

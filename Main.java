@@ -73,9 +73,10 @@ public class Main
         
     
 		//FCFS
-		// FCFS.runFCFS(process);
-		// FCFS.displayTimeline();
+		FCFS.runFCFS(process);
+		FCFS.displayTimeline();
 
+<<<<<<< HEAD
 		//RR
 		// RR.runRR(process, timeQuantum);
 		// RR.displayTimeline();
@@ -86,9 +87,19 @@ public class Main
 		ThreeLvlQ.displayTimeline2();
 		ThreeLvlQ.displayTimeline3();
 
+=======
+		// RR
+		RR.runRR(process, timeQuantum);
+		RR.displayTimeline();
+        
+		//3-LEVEL QUEUE
+		// ThreeLvlQ.runThreeLvlQ(process);
+		// ThreeLvlQ.displayTimeline();
+        
+>>>>>>> 4d976eea74ff80396bd694c38ff6ddd10520aafe
 		//SRTN
-		// SRTN.runSRTN(process);
-		// SRTN.displayTimeline();
+		SRTN.runSRTN(process);
+		SRTN.displayTimeline();
 
         
 
