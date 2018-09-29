@@ -68,6 +68,10 @@ public class Process implements Comparable<Process>
     {
         this.waitingTime = waitingTime;
     }
+    public void incrementWaitingTime()
+    {
+        this.waitingTime++;
+    }
     
     //getter functions
     public String getName()
