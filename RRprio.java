@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class RRprio 
 {
     Stack<Process> arrivalTimeStack = new Stack<>();
-    PriorityQueue<Process> priorityQueue = new PriorityQueue<>();
+    PriorityQueue<Process> priorityQueue = new PriorityQueue<>(new WaitTimeComparator());
 	ArrayList<Box> output = new ArrayList<>();
     int totalBurstTime=0;
     int time=0;
@@ -29,6 +29,7 @@ public class RRprio
 		Process currentProcess = arrivalTimeStack.pop();
 		Process nextProcess = new Process();
 		Process tmp = new Process();
+		int waitTime = 0;
        
         for(int time=0;time<=totalBurstTime;time++)
         {
@@ -49,6 +50,7 @@ public class RRprio
 					endTime = time;
 					output.add(new Box(currentProcess, startTime, endTime));
 					currentProcess = priorityQueue.poll();
+					//currentProcess.setWaitingTime(0);
 					startTime = time;
 				}
 			}
@@ -56,15 +58,24 @@ public class RRprio
 				endTime = time;
 				output.add(new Box(currentProcess, startTime, endTime));
 				if(!priorityQueue.isEmpty()){
+					currentProcess.setWaitingTime(0);
 					tmp = currentProcess;
 					currentProcess = priorityQueue.poll();
+					//currentProcess.setWaitingTime(0);
 					priorityQueue.add(tmp);
 				}
 				startTime = time;
 			}
 			if(currentProcess != null){
 				currentProcess.incrementElapsedTime();
+				
 			}
+			for(Process proc: priorityQueue)
+				{
+					waitTime++;
+					proc.setWaitingTime(waitTime);
+				}
+
 		}
 		endTime = totalBurstTime;
 		output.add(new Box(currentProcess, startTime, endTime));
