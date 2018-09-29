@@ -6,8 +6,8 @@ public class RR
 {
     ArrayList<Process> processStack = new ArrayList<>(); //sorted by arrival time
     ArrayList<Process> output = new ArrayList<>(); 
-    PriorityQueue priorityList = new PriorityQueue<>(); //sorted aaccording to priority (default)
-    Queue waitingList = new Queue<>();  //FCFS priority
+   // PriorityQueue priorityList = new PriorityQueue<>(); //sorted aaccording to priority (default)
+    PriorityQueue waitingList = new PriorityQueue<>();  //FCFS priority
     int totalBurstTime=0;
     int timeQuantum = 0;
 
@@ -33,7 +33,7 @@ public class RR
 
         Iterator processStackIterator = processStack.iterator();
         Iterator waitingListIterator = waitingList.iterator();
-        Iterator priorityList = priorityList.iterator();
+        //Iterator priorityList = priorityList.iterator();
 
         for(int i=0;i<=totalBurstTime;i++)
         {   
@@ -69,16 +69,20 @@ public class RR
                 //if processlist.next.getarrivaltime == currenttime
                     //iterate waiting list
                     //if waitinglist.next .getPriority <= processlist.next.getpriority
+                        //waitinglist.next.setwwaitingtime = 0; //reset waiting time of elected process
                         //nextprocess = waitinglist.poll();
                         //waitinglist.add(processlist.next);
                         //increase waiting time for remainging processes in waitinglist
 
                     //else if waitinglist.next .getPriority >  processlist.next.getpriority
                         //nextprocess = processlist.next
-                        //increase waiting time for remainging processes in waitinglist
+                        //waitingtime++ //increase waiting time for remainging processes in waitinglist
                 //else
                     //iterate waiting list
+                    //waitinglist.next.setwwaitingtime = 0; //reset waiting time of elected process
                     //nextprocess = waitinglist.poll();
+                    //waitingtime++ //increase waiting time for remainging processes in waitinglist
+
 
             }
         }
