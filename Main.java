@@ -22,42 +22,21 @@ public class Main
         System.out.println();
         System.out.println("Enter number of processes[3-10]: ");
         numOfProcesses = input.nextInt();
-        System.out.println("\nEnter quantum: ");
+        System.out.println("\nEnter time quantum: ");
         timeQuantum = input.nextInt();
-        // for(int i=0; i<numOfProcesses; i++)
-        // {
-        //     name = "P" + i;
-        //     System.out.println("Process P" + i);
-        //     System.out.println();
-        //     System.out.print("Enter arrival time: ");
-        //     arrivalTime = input.nextInt();
-        //     System.out.println();
-        //     System.out.print("Enter burst time: ");
-        //     burstTime = input.nextInt();
-        //     System.out.println();
-        //     System.out.print("Enter priority[1-6]: ");
-        //     priority = input.nextInt();
+        for(int i=0; i<numOfProcesses; i++)
+        {
+			System.out.println();
+            name = "P" + i;
+            System.out.println("Process P" + i);
+            System.out.print("Enter arrival time: ");
+            arrivalTime = input.nextInt();
+            System.out.print("Enter burst time[1-6]: ");
+            burstTime = input.nextInt();
+            System.out.print("Enter priority[1-6]: ");
+            priority = input.nextInt();
             
-
-        //     // if((priority==1)||(priority==2))
-        //     // {
-        //     //     System.out.println();
-        //     //     System.out.print("Enter time quantum: ");
-        //     //     timeQuantum = input.nextInt();
-        //     // }
-            
-        //     // if(timeQuantum != 0)
-        //     // {
-        //     //     process.add(new Process(name, arrivalTime, burstTime, priority, timeQuantum));
-        //     // }
-        //     // else
-        //     // {
-        //     //     process.add(new Process(name, arrivalTime, burstTime, priority));
-        //     // }
-        //     process.add(new Process(name, arrivalTime, burstTime, priority));
-        //     System.out.println();
-        //     System.out.println();
-        // }
+		}
 
 		process.add(new Process("P0", 0, 6, 3));
 		process.add(new Process("P1", 1, 4, 3));
@@ -76,28 +55,16 @@ public class Main
 		FCFS.runFCFS(process);
 		FCFS.displayTimeline();
 
-<<<<<<< HEAD
-		//RR
-		// RR.runRR(process, timeQuantum);
-		// RR.displayTimeline();
 
-		//3-LEVEL QUEUE
-		ThreeLvlQ.runThreeLvlQ(process);
-		ThreeLvlQ.displayTimeline();
-		ThreeLvlQ.displayTimeline2();
-		ThreeLvlQ.displayTimeline3();
-
-=======
 		// RR
 		RR.runRR(process, timeQuantum);
 		RR.displayTimeline();
         
-		//3-LEVEL QUEUE
-		// ThreeLvlQ.runThreeLvlQ(process);
-		// ThreeLvlQ.displayTimeline();
-        
->>>>>>> 4d976eea74ff80396bd694c38ff6ddd10520aafe
-		//SRTN
+		// //3-LEVEL QUEUE
+		// // ThreeLvlQ.runThreeLvlQ(process);
+		// // ThreeLvlQ.displayTimeline();
+
+		// //SRTN
 		SRTN.runSRTN(process);
 		SRTN.displayTimeline();
 
