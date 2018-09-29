@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Main
-{
+{ 
 
     public static void main(String[] args)
     {
@@ -77,12 +77,14 @@ public class Main
 		// FCFS.displayTimeline();
 
 		//RR
-		RR.runRR(process, timeQuantum);
-		RR.displayTimeline();
+		// RR.runRR(process, timeQuantum);
+		// RR.displayTimeline();
 
 		//3-LEVEL QUEUE
-		// ThreeLvlQ.runThreeLvlQ(process);
-		// ThreeLvlQ.displayTimeline();
+		ThreeLvlQ.runThreeLvlQ(process);
+		ThreeLvlQ.displayTimeline();
+		ThreeLvlQ.displayTimeline2();
+		ThreeLvlQ.displayTimeline3();
 
 		//SRTN
 		// SRTN.runSRTN(process);
