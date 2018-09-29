@@ -50,33 +50,35 @@ public class RRprio
 					endTime = time;
 					output.add(new Box(currentProcess, startTime, endTime));
 					currentProcess = priorityQueue.poll();
-					//currentProcess.setWaitingTime(0);
+					currentProcess.setWaitingTime(0);
 					startTime = time;
 				}
 			}
 			else if (currentProcess != null && time != 0 && time % quantum == 0){
-				endTime = time;
-				output.add(new Box(currentProcess, startTime, endTime));
-				if(!priorityQueue.isEmpty()){
-					currentProcess.setWaitingTime(0);
-					tmp = currentProcess;
-					currentProcess = priorityQueue.poll();
-					//currentProcess.setWaitingTime(0);
-					priorityQueue.add(tmp);
+				if(!priorityQueue.isEmpty() && currentProcess.getPriority() >= priorityQueue.peek().getPriority())
+				{
+					endTime = time;
+					output.add(new Box(currentProcess, startTime, endTime));
+					if(!priorityQueue.isEmpty())
+					{
+						currentProcess.setWaitingTime(0);
+						tmp = currentProcess;
+						currentProcess = priorityQueue.poll();
+						currentProcess.setWaitingTime(0);
+						priorityQueue.add(tmp);
+					}
+					startTime = time;
 				}
-				startTime = time;
 			}
 			if(currentProcess != null){
 				currentProcess.incrementElapsedTime();
 				
 			}
-			for(Process proc: priorityQueue)
-				{
-					waitTime++;
-					proc.setWaitingTime(waitTime);
-				}
-
 		}
+		for(Process proc: priorityQueue)
+			{
+				proc.incrementWaitingTime();
+			}
 		endTime = totalBurstTime;
 		output.add(new Box(currentProcess, startTime, endTime));
 	}
