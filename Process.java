@@ -25,7 +25,6 @@ public class Process implements Comparable<Process>
         this.arrivalTime = arrivalTime;
         this.burstTime =  burstTime;
         this.priority = priority;
-        
     }
 
 	public Process(){}
@@ -40,9 +39,9 @@ public class Process implements Comparable<Process>
         this.arrivalTime = arrivalTime;
     }
     
-    public void setBurstTime(int burstTime)
+    public void resetBurstTime(int burstTime)
     {
-        this.burstTime = this.burstTime - burstTime;
+        this.burstTime -= burstTime;
     }
     
     public void setPriority(int priority)
@@ -58,6 +57,11 @@ public class Process implements Comparable<Process>
     public void incrementElapsedTime()
     {
         this.elapsedTime++;
+    }
+
+    public void setElapsedTime(int elapsedTime)
+    {
+        this.elapsedTime = elapsedTime;
     }
     
     //getter functions
@@ -99,9 +103,7 @@ public class Process implements Comparable<Process>
             return arrivalTime - p.getArrivalTime();
             
         }
-        return priority - p.getPriority();
+        return priority - p.getPriority();   
     }
-   
-   
-   
+
 }

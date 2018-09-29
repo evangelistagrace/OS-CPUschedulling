@@ -35,29 +35,31 @@ public class SRTNprio
 
 		for(int time=0;time<=totalBurstTime;time++)
         {
-			if(!burstTimeStack.isEmpty())
+			if(!arrivalTimeStack.isEmpty())
 			{
 				nextProcess = arrivalTimeStack.peek();
 			}
 			else {
 				nextProcess = null;
 			}
-			if(nextProcess != null && nextProcess.getArrivalTime() == time)
+			if((nextProcess != null) && (nextProcess.getArrivalTime() == time))
 			{
-				if(currentProcess != null && nextProcess.getBurstTime() < currentProcess.getBurstTime())
+				if((currentProcess != null) && (nextProcess.getBurstTime() < currentProcess.getBurstTime()))
 				{
 					//todo:calculate and assign remaining burst time for preempted process and add it to queue
-					currentProcess.setBurstTime(currentProcess.getElapsedTime());
+					currentProcess.resetBurstTime(currentProcess.getElapsedTime());
+					currentProcess.setElapsedTime(0);
 					burstTimeQueue.add(currentProcess);
 					endTime = time;
 					output.add(new Box(currentProcess, startTime, endTime));
 					currentProcess = arrivalTimeStack.pop();
 					startTime = time;
 				}
-				else if(currentProcess != null && nextProcess.getBurstTime() >= currentProcess.getBurstTime())
+				else if(currentProcess != null && nextProcess.getBurstTime() == currentProcess.getBurstTime())
 				{
 					if(nextProcess.getPriority() < currentProcess.getPriority()){
-						currentProcess.setBurstTime(currentProcess.getElapsedTime());
+						currentProcess.resetBurstTime(currentProcess.getElapsedTime());
+						currentProcess.setElapsedTime(0);
 						burstTimeQueue.add(currentProcess);
 						endTime = time;
 						output.add(new Box(currentProcess, startTime, endTime));
@@ -70,7 +72,7 @@ public class SRTNprio
 					burstTimeQueue.add(arrivalTimeStack.pop());
 				}
 			}
-			else if(currentProcess != null && currentProcess.getElapsedTime() >= currentProcess.getBurstTime()){ //if current process finishes executing save in output array
+			if(currentProcess != null && currentProcess.getElapsedTime() >= currentProcess.getBurstTime()){ //if current process finishes executing save in output array
 				endTime = time;
 				output.add(new Box(currentProcess, startTime, endTime));
 				currentProcess = burstTimeQueue.poll();
