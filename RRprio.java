@@ -15,10 +15,12 @@ public class RRprio
     
     public void runRR(ArrayList<Process> p, int q)
     {
+
 		this.quantum = q;
         for(int i=0;i<p.size();i++)
         {
-            arrivalTimeStack.add(p.get(i));
+			Process newP = new Process(p.get(i));
+			arrivalTimeStack.add(newP);
             totalBurstTime += p.get(i).getBurstTime();
         }
         

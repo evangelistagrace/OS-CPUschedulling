@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.Scanner;
 
-public class FCFSprio extends SchedulingAlgo
+public class FCFSprio
 {
     Stack<Process> arrivalTimeStack = new Stack<>();
     PriorityQueue<Process> priorityQueue = new PriorityQueue<>();
@@ -14,11 +14,10 @@ public class FCFSprio extends SchedulingAlgo
     
     public void runFCFS(ArrayList<Process> p)
     {
-		// Scanner in = new Scanner(System.in);
-		// String s = "";
         for(int i=0;i<p.size();i++)
         {
-            arrivalTimeStack.add(p.get(i));
+			Process newP = new Process(p.get(i));
+			arrivalTimeStack.add(newP);
             totalBurstTime += p.get(i).getBurstTime();
         }
         

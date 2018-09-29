@@ -73,20 +73,20 @@ public class Main
         
     
 		//FCFS
-		// FCFS.runFCFS(process);
-		// FCFS.displayTimeline();
+		FCFS.runFCFS(process);
+		FCFS.displayTimeline();
 
-		//RR
+		// RR
 		RR.runRR(process, timeQuantum);
 		RR.displayTimeline();
-
+        
 		//3-LEVEL QUEUE
 		// ThreeLvlQ.runThreeLvlQ(process);
 		// ThreeLvlQ.displayTimeline();
-
+        
 		//SRTN
-		// SRTN.runSRTN(process);
-		// SRTN.displayTimeline();
+		SRTN.runSRTN(process);
+		SRTN.displayTimeline();
 
         
 

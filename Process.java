@@ -3,7 +3,6 @@ import java.util.*;
 public class Process implements Comparable<Process>
 {
     String name;
-    int numOfProcesses;
     int arrivalTime=0;
     int burstTime;
     int priority=1;
@@ -26,6 +25,16 @@ public class Process implements Comparable<Process>
         this.arrivalTime = arrivalTime;
         this.burstTime =  burstTime;
         this.priority = priority;
+    }
+
+    public Process(Process p){
+        this.name = p.getName();
+        this.arrivalTime = p.getArrivalTime();
+        this.burstTime = p.getBurstTime();
+        this.priority = p.getPriority();
+        this.timeQuantum = p.getTimeQuantum();
+        this.elapsedTime = 0;
+        this.waitingTime = 0;
     }
 
 	public Process(){}
