@@ -8,7 +8,8 @@ public class Process implements Comparable<Process>
     int burstTime;
     int priority=1;
     int timeQuantum;
-	int elapsedTime = 0;
+    int elapsedTime = 0;
+    int waitingTime = 0;
     
     public Process(String name, int arrivalTime,int burstTime,int priority, int timeQuantum) //for priority 1 and 2, with time quantum
     {
@@ -63,6 +64,14 @@ public class Process implements Comparable<Process>
     {
         this.elapsedTime = elapsedTime;
     }
+    public void setWaitingTime(int waitingTime)
+    {
+        this.waitingTime = waitingTime;
+    }
+    public void incrementWaitingTime()
+    {
+        this.waitingTime++;
+    }
     
     //getter functions
     public String getName()
@@ -93,7 +102,11 @@ public class Process implements Comparable<Process>
 	public int getElapsedTime()
 	{
 		return elapsedTime;
-	}
+    }
+    public int getWaitingTime()
+    {
+        return waitingTime;
+    }
     
     //sort ccording to priority
     public int compareTo(Process p)
