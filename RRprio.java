@@ -9,7 +9,8 @@ public class RRprio
     int totalBurstTime=0;
     int time=0;
     int quantum = 0;
-    
+	String title = "Round Robin Priority Scheduling: ";
+	
     public RRprio(){}
     
     public void runRR(ArrayList<Process> p, int q)
@@ -67,13 +68,68 @@ public class RRprio
 		}
 		endTime = totalBurstTime;
 		output.add(new Box(currentProcess, startTime, endTime));
-
-		for(Box t: output)
-		{
-			System.out.println("thread: " + t.p.getName() + ", start time: " + t.startTime + ", end time: " + t.endTime);
-		}
+	}
 	
-    }
+	// start of displayTimeline
+	public void displayTimeline()
+	{
+		System.out.println();
+		System.out.println(title);
+		for(int i=0;i<output.size();i++)
+		{
+			String line = String.format("%8s", "-").replace(' ', '-');
+			System.out.print(line);
+
+		
+		}
+		System.out.println();
+		for(int i=0;i<output.size();i++)
+		{
+
+			String tab = String.format("%1$2s", " ");
+			String pname = String.format("%1$2s %2$-2s",  output.get(i).p.getName(), " ");
+
+			if(i==(output.size()-1))
+			{
+				System.out.print("|" );
+				System.out.print(tab);
+				System.out.print(pname);
+				System.out.print("|" );
+			}
+			else{
+				System.out.print("|" );
+				System.out.print(tab);
+				System.out.print(pname);
+
+			}
+		
+		}
+
+		System.out.println();
+		for(int i=0;i<output.size();i++)
+		{
+			String line = String.format("%8s", "-").replace(' ', '-');
+			System.out.print(line);
+
+		
+		}
+		
+		System.out.println();
+		for(int i=0;i<output.size();i++)
+		{ 
+			String timeline1 = String.format("%1$-4s %2$4s",  output.get(i).startTime, output.get(i).endTime);
+			String timeline2 = String.format("%1$8s", output.get(i).endTime);
+
+			if(i==0)
+			{
+				System.out.print(timeline1);
+			}
+			else{
+				System.out.print(timeline2);
+			}
+				
+		}
+	}//end of displayTimeline
 }
 
 
