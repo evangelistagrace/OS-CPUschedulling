@@ -41,7 +41,6 @@ public class FCFSprio
 			{
 				if(nextProcess.getPriority() < currentProcess.getPriority())
 				{
-					// TODO: save current process end time and remaining burst time
 					priorityQueue.add(currentProcess);
 					endTime = time;
 					output.add(new Box(currentProcess, startTime, endTime));

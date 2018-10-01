@@ -16,7 +16,8 @@ public class SRTNprio
 		ArrayList<Process> p = new ArrayList<>(process);
 		for(int i=0;i<p.size();i++)
         {
-            arrivalTimeStack.add(p.get(i));
+            Process newP = new Process(p.get(i));
+			arrivalTimeStack.add(newP);
             totalBurstTime += p.get(i).getBurstTime();
 		}
 		
@@ -27,10 +28,6 @@ public class SRTNprio
 		Process currentProcess = arrivalTimeStack.pop();  //take the process with the earliest arrival for the first process
 		Process nextProcess = new Process();
 
-		// for(int i=0;i<arrivalTimeStack.size();i++)  //place remaining processes inside queue
-        // {
-        //     burstTimeStack.add(arrivalTimeStack.get(i));
-		// }
 		
 
 		for(int time=0;time<=totalBurstTime;time++)
