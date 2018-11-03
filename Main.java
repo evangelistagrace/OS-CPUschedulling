@@ -25,47 +25,25 @@ public class Main
         numOfProcesses = input.nextInt();
         System.out.println("\nEnter quantum: ");
         timeQuantum = input.nextInt();
-        // for(int i=0; i<numOfProcesses; i++)
-        // {
-        //     name = "P" + i;
-        //     System.out.println("Process P" + i);
-        //     System.out.println();
-        //     System.out.print("Enter arrival time: ");
-        //     arrivalTime = input.nextInt();
-        //     System.out.println();
-        //     System.out.print("Enter burst time: ");
-        //     burstTime = input.nextInt();
-        //     System.out.println();
-        //     System.out.print("Enter priority[1-6]: ");
-        //     priority = input.nextInt();
+        for(int i=0; i<numOfProcesses; i++)
+        {
+            name = "P" + i;
+            System.out.println("Process P" + i);
+            System.out.println();
+            System.out.print("Enter arrival time: ");
+            arrivalTime = input.nextInt();
+            System.out.println();
+            System.out.print("Enter burst time: ");
+            burstTime = input.nextInt();
+            System.out.println();
+            System.out.print("Enter priority[1-6]: ");
+            priority = input.nextInt();
             
+            process.add(new Process(name, arrivalTime, burstTime, priority));
+            System.out.println();
+            System.out.println();
+        }
 
-        //     // if((priority==1)||(priority==2))
-        //     // {
-        //     //     System.out.println();
-        //     //     System.out.print("Enter time quantum: ");
-        //     //     timeQuantum = input.nextInt();
-        //     // }
-            
-        //     // if(timeQuantum != 0)
-        //     // {
-        //     //     process.add(new Process(name, arrivalTime, burstTime, priority, timeQuantum));
-        //     // }
-        //     // else
-        //     // {
-        //     //     process.add(new Process(name, arrivalTime, burstTime, priority));
-        //     // }
-        //     //process.add(new Process(name, arrivalTime, burstTime, priority));
-        //     System.out.println();
-        //     System.out.println();
-        // }
-
-		process.add(new Process("P0", 0, 6, 3));
-		process.add(new Process("P1", 1, 4, 3));
-		process.add(new Process("P2", 5, 6, 1));
-        process.add(new Process("P3", 6, 6, 1));
-        process.add(new Process("P4", 7, 6, 5));
-		process.add(new Process("P5", 8, 6, 6));
         
         System.out.println();
         System.out.println();
