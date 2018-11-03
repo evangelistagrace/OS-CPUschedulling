@@ -148,21 +148,7 @@ public class RRprio
 			}
 				
 		}
+		System.out.println();
+		System.out.println();
 	}//end of displayTimeline
 }
-
-
-
-// if(currentProcess != null && time != 0 && (currentProcess.getElapsedTime() >= currentProcess.getBurstTime() || time % quantum == 0)) {
-// 	endTime = time;
-// 	output.add(new Box(currentProcess, startTime, endTime));
-// 	Proc tmp = currentProcess;
-// 	if(!priorityQueue.isEmpty()){
-// 		currentProcess = priorityQueue.poll();
-// 	}
-// 	if(currentProcess.getElapsedTime() < currentProcess.getBurstTime()){
-// 		priorityQueue.add(tmp);
-// 	}
-	
-// 	startTime = time;
-// }

@@ -123,6 +123,8 @@ public class FCFSprio
 			}
 				
 		}
+		System.out.println();
+		System.out.println();
 	}//end of displayTimeline
 }
 	

@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Main
-{
+{ 
 
     public static void main(String[] args)
     {
@@ -23,10 +23,11 @@ public class Main
         System.out.println();
         System.out.println("Enter number of processes[3-10]: ");
         numOfProcesses = input.nextInt();
-        System.out.println("\nEnter quantum: ");
+        System.out.println("\nEnter time quantum: ");
         timeQuantum = input.nextInt();
         for(int i=0; i<numOfProcesses; i++)
         {
+
             name = "P" + i;
             System.out.println("Process P" + i);
             System.out.println();
@@ -44,6 +45,7 @@ public class Main
             System.out.println();
         }
 
+
         
         System.out.println();
         System.out.println();
@@ -55,6 +57,7 @@ public class Main
 		FCFS.runFCFS(process);
 		FCFS.displayTimeline();
 
+
 		// RR
 		RR.runRR(process, timeQuantum);
 		RR.displayTimeline();
@@ -64,9 +67,9 @@ public class Main
 		SRTN.runSRTN(process);
         SRTN.displayTimeline();
         
-        //TLQ
-        TLQ.runThreeLvlQ(process, timeQuantum);
-        TLQ.displayTimeline();
+    //TLQ
+    TLQ.runThreeLvlQ(process, timeQuantum);
+    TLQ.displayTimeline();
 
         
 
