@@ -8,7 +8,8 @@ public class RRprio
 	ArrayList<Box> output = new ArrayList<>();
     int totalBurstTime=0;
     int time=0;
-    int quantum = 0;
+	int quantum = 0;
+	int quantumRun = 0;
 	String title = "Round Robin Priority Scheduling: ";
 	
     public RRprio(){}
@@ -54,9 +55,10 @@ public class RRprio
 					currentProcess = priorityQueue.poll();
 					currentProcess.setWaitingTime(0);
 					startTime = time;
+					quantumRun = 0;
 				}
 			}
-			else if (currentProcess != null && time != 0 && time % quantum == 0){
+			else if (currentProcess != null && quantumRun != 0 && quantumRun % quantum == 0){
 				if(!priorityQueue.isEmpty() && currentProcess.getPriority() >= priorityQueue.peek().getPriority())
 				{
 					endTime = time;
@@ -70,10 +72,12 @@ public class RRprio
 						priorityQueue.add(tmp);
 					}
 					startTime = time;
+					quantumRun = 0;
 				}
 			}
 			if(currentProcess != null){
 				currentProcess.incrementElapsedTime();
+				quantumRun++;
 				
 			}
 		}
